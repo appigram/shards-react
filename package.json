@@ -20,7 +20,8 @@
     "start": "nodemon --port 3001",
     "lint": "tslint --format stylish --project .",
     "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"**/*.{ts,tsx,css,scss,html,js,jsx,yml,json,md}\" \"!{,dist}/**\"",
-    "test": "npm run clean && npm run prettier && npm run build && npm run lint"
+    "test": "npm run clean && npm run prettier && npm run build && npm run lint",
+    "prepare": "npm run build"
   },
   "author": "DesignRevision <contact@designrevision.com>",
   "license": "MIT",
