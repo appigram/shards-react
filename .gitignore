@@ -6,3 +6,6 @@
 # Project dependencies
 node_modules
 yarn-error.log
+
+# Built
+dist
