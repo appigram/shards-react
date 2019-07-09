@@ -23,11 +23,10 @@ npm i shards-react
 
 Once the package is installed, you can simply import components and all the required styles assuming that you're using a module bundler such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/guide/en).
 
-
 ```javascript
-import { Alert } from "shards-react";
+import { Alert } from "shards-react"
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
 
 // ...

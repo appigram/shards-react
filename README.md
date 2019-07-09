@@ -24,13 +24,12 @@ Shards React is a free, beautiful and modern React UI kit <br /> based on <a hre
   <a href="https://designrevision.com/downloads/shards-react/"><strong>Official Page</strong></a>
 </p>
 
-
 ### Getting Started
 
 Getting started with Shards React is fairly simple. You can download Shards React via the official website, here on GitHub as a release package or by using a package manager such as Yarn or NPM.
 
-* [Official Website](https://designrevision.com/downloads/shards-react)
-* [Release Package](https://github.com/DesignRevision/shards-react/releases)
+- [Official Website](https://designrevision.com/downloads/shards-react)
+- [Release Package](https://github.com/DesignRevision/shards-react/releases)
 
 <br />
 
@@ -53,9 +52,9 @@ npm i shards-react
 If you are using a module bundler such as [Webpack](https://webpack.js.org/) or [Rollup](https://rollupjs.org/), you can import components as follows:
 
 ```javascript
-import { Alert } from "shards-react";
+import { Alert } from "shards-react"
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 import "shards-ui/dist/css/shards.min.css"
 
 // ...
@@ -65,10 +64,10 @@ import "shards-ui/dist/css/shards.min.css"
 
 ### Built Using
 
-* [Shards UI Kit](https://designrevision.com/downloads/shards/)
-* [React Datepicker](https://reactdatepicker.com/)
-* [React Popper](https://github.com/FezVrasta/react-popper)
-* [noUiSlider by Léon Gersen (WTFPL License)](https://refreshless.com/nouislider/download/)
+- [Shards UI Kit](https://designrevision.com/downloads/shards/)
+- [React Datepicker](https://reactdatepicker.com/)
+- [React Popper](https://github.com/FezVrasta/react-popper)
+- [noUiSlider by Léon Gersen (WTFPL License)](https://refreshless.com/nouislider/download/)
 
 <br />
 
