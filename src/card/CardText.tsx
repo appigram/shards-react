@@ -4,7 +4,7 @@ interface CardTextProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardText: React.FunctionComponent<CardTextProps> = props => {
+const CardText = (props: CardTextProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-text")
   // @ts-ignore idk

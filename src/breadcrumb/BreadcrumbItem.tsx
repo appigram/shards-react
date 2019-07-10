@@ -5,7 +5,7 @@ interface BreadcrumbItemProps extends LiHTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const BreadcrumbItem: React.FunctionComponent<BreadcrumbItemProps> = props => {
+const BreadcrumbItem = (props: BreadcrumbItemProps) => {
   const { className, active, tag: Tag, ...attrs } = props
   const classes = classNames(className, active && "active", "breadcrumb-item")
   return (

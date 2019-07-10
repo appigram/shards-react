@@ -6,7 +6,7 @@ interface RowProps extends HTMLAttributes<{}> {
   form?: boolean
   tag?: ((...args: any[]) => any) | string
 }
-const Row: React.FunctionComponent<RowProps> = props => {
+const Row = (props: RowProps) => {
   const { noGutters, form, className, tag: Tag, ...attrs } = props
   const classes = classNames(
     className,

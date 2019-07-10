@@ -7,7 +7,7 @@ interface BreadcrumbProps extends HTMLAttributes<{}> {
   tag?: ((...args: any[]) => any) | string
   listTag?: ((...args: any[]) => any) | string
 }
-const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = props => {
+const Breadcrumb = (props: BreadcrumbProps) => {
   const {
     className,
     listClassName,

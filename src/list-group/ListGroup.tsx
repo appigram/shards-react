@@ -6,7 +6,7 @@ interface ListGroupProps extends HTMLAttributes<{}> {
   small?: boolean
   tag?: ((...args: any[]) => any) | string
 }
-const ListGroup: React.FunctionComponent<ListGroupProps> = props => {
+const ListGroup = (props: ListGroupProps) => {
   const { className, tag: Tag, flush, small, ...attrs } = props
   const classes = classNames(
     className,

@@ -11,7 +11,7 @@ interface NavbarProps extends HTMLAttributes<{}> {
   tag?: ((...args: any[]) => any) | string
   expand?: boolean | string
 }
-const Navbar: React.FunctionComponent<NavbarProps> = props => {
+const Navbar = (props: NavbarProps) => {
   const {
     className,
     expand,

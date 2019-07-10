@@ -4,7 +4,7 @@ interface CardGroupProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardGroup: React.FunctionComponent<CardGroupProps> = props => {
+const CardGroup = (props: CardGroupProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-group")
   // @ts-ignore idk

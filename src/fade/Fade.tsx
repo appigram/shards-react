@@ -11,7 +11,7 @@ interface FadeProps extends Partial<TransitionProps> {
   className?: string
   innerRef?: Ref<Transition>
 }
-const Fade: React.FunctionComponent<FadeProps> = props => {
+const Fade = (props: FadeProps) => {
   const {
     tag: Tag,
     baseClass,

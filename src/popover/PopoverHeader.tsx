@@ -4,7 +4,7 @@ interface PopoverHeaderProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const PopoverHeader: React.FunctionComponent<PopoverHeaderProps> = props => {
+const PopoverHeader = (props: PopoverHeaderProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "popover-header")
   // @ts-ignore idk

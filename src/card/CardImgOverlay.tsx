@@ -4,7 +4,7 @@ interface CardImgOverlayProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardImgOverlay: React.FunctionComponent<CardImgOverlayProps> = props => {
+const CardImgOverlay = (props: CardImgOverlayProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-img-overlay")
   // @ts-ignore idk

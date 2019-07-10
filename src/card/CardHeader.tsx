@@ -4,7 +4,7 @@ interface CardHeaderProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardHeader: React.FunctionComponent<CardHeaderProps> = props => {
+const CardHeader = (props: CardHeaderProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-header")
   // @ts-ignore

@@ -4,7 +4,7 @@ interface CardColumnsProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardColumns: React.FunctionComponent<CardColumnsProps> = props => {
+const CardColumns = (props: CardColumnsProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-columns")
   // @ts-ignore idk

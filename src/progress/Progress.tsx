@@ -12,8 +12,7 @@ interface ProgressProps extends HTMLAttributes<{}> {
   value?: number | string
   max?: number | string
 }
-// @ts-ignore
-const Progress: React.FunctionComponent<ProgressProps> = props => {
+const Progress = (props: ProgressProps) => {
   const {
     children,
     className,
@@ -25,7 +24,7 @@ const Progress: React.FunctionComponent<ProgressProps> = props => {
     theme,
     bar,
     multi,
-    tag: Tag = Component,
+    tag: Tag,
     ...attrs
   } = props
   const parsedValue = Number(value) || 0
@@ -54,14 +53,13 @@ const Progress: React.FunctionComponent<ProgressProps> = props => {
     </div>
   )
   if (bar) {
-    return ProgressBar
+    return ProgressBar as JSX.Element
   }
   return (
-    (
-      <Tag {...attrs} className={progressClasses}>
-        {ProgressBar}
-      </Tag>
-    ) || Component
+    // @ts-ignore
+    <Tag {...attrs} className={progressClasses}>
+      {ProgressBar}
+    </Tag>
   )
 }
 Progress.defaultProps = {

@@ -8,7 +8,7 @@ interface ListGroupItemProps extends LiHTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const ListGroupItem: React.FunctionComponent<ListGroupItemProps> = props => {
+const ListGroupItem = (props: ListGroupItemProps) => {
   const {
     className,
     tag: Tag,

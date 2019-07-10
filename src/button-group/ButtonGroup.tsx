@@ -1,11 +1,11 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-interface ButtonGroupProps {
+interface ButtonGroupProps extends HTMLAttributes<{}> {
   className?: string
   size?: string
   vertical?: boolean
 }
-const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
+const ButtonGroup = (props: ButtonGroupProps) => {
   const { className, vertical, size, ...attrs } = props
   const classes = classNames(
     className,

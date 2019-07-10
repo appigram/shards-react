@@ -26,7 +26,7 @@ interface ColProps extends HTMLAttributes<{}> {
   breakpoints?: BreakPoint[]
   tag?: ((...args: any[]) => any) | string
 }
-const Col: React.FunctionComponent<ColProps> = props => {
+const Col = (props: ColProps) => {
   const { className, breakpoints = [], tag: Tag, ...attrs } = props
   const columnClasses = []
   breakpoints.forEach((breakpoint, idx) => {

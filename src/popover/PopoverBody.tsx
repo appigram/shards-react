@@ -4,7 +4,7 @@ interface PopoverBodyProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const PopoverBody: React.FunctionComponent<PopoverBodyProps> = props => {
+const PopoverBody = (props: PopoverBodyProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "popover-body")
   // @ts-ignore idk

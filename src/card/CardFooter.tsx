@@ -4,7 +4,7 @@ interface CardFooterProps extends HTMLAttributes<{}> {
   tag?: ((...args: any[]) => any) | string
   className?: string
 }
-const CardFooter: React.FunctionComponent<CardFooterProps> = props => {
+const CardFooter = (props: CardFooterProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-footer")
   // @ts-ignore idk

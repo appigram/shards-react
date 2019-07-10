@@ -12,7 +12,7 @@ interface AlertProps extends HTMLAttributes<{}> {
   transition?: any
   tag?: ((...args: any[]) => any) | string
 }
-const Alert: React.FunctionComponent<AlertProps> = props => {
+const Alert = (props: AlertProps) => {
   const {
     className,
     closeClassName,

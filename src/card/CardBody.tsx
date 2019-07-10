@@ -4,7 +4,7 @@ interface CardBodyProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardBody: React.FunctionComponent<CardBodyProps> = props => {
+const CardBody = (props: CardBodyProps) => {
   const { className, tag: Tag, children, ...attrs } = props
   const classes = classNames(className, "card-body")
   return (

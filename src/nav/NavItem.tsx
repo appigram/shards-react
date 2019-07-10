@@ -6,7 +6,7 @@ interface NavItemProps extends LiHTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const NavItem: React.FunctionComponent<NavItemProps> = props => {
+const NavItem = (props: NavItemProps) => {
   const { className, active, disabled, tag: Tag, ...attrs } = props
   const classes = classNames(
     className,

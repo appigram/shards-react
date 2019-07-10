@@ -7,7 +7,7 @@ interface ModalHeaderProps extends HTMLAttributes<{}> {
   closeAriaLabel?: string
   titleClass?: string
 }
-const ModalHeader: React.FunctionComponent<ModalHeaderProps> = props => {
+const ModalHeader = (props: ModalHeaderProps) => {
   const {
     className,
     children,

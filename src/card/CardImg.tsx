@@ -6,7 +6,7 @@ interface CardImgProps extends ImgHTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardImg: React.FunctionComponent<CardImgProps> = props => {
+const CardImg = (props: CardImgProps) => {
   const { className, top, bottom, tag: Tag, ...attrs } = props
   let cardImgClass = ""
   if (top) {

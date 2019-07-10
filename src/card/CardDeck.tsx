@@ -4,7 +4,7 @@ interface CardDeckProps extends HTMLAttributes<{}> {
   tag?: ((...args: any[]) => any) | string
   className?: string
 }
-const CardDeck: React.FunctionComponent<CardDeckProps> = props => {
+const CardDeck = (props: CardDeckProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-deck")
   // @ts-ignore idk

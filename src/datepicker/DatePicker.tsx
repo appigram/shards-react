@@ -8,7 +8,7 @@ interface DatePickerProps extends ReactDatePickerProps {
   size: string
 }
 
-const DatePicker: React.FunctionComponent<DatePickerProps> = props => {
+const DatePicker = (props: DatePickerProps) => {
   const { className, size, ...attrs } = props
   const classes = classNames(
     className,

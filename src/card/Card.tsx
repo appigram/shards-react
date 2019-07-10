@@ -8,7 +8,7 @@ interface CardProps extends HTMLAttributes<{}> {
   small?: boolean
   innerRef?: Ref<HTMLDivElement>
 }
-const Card: React.FunctionComponent<CardProps> = props => {
+const Card = (props: CardProps) => {
   const {
     className,
     innerRef,

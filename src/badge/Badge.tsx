@@ -7,7 +7,7 @@ interface BadgeProps extends LinkHTMLAttributes<{}> {
   pill?: boolean
   tag?: ((...args: any[]) => any) | string
 }
-const Badge: React.FunctionComponent<BadgeProps> = props => {
+const Badge = (props: BadgeProps) => {
   // tslint:disable-next-line: prefer-const
   let { tag: Tag, className, theme, pill, outline, ...attrs } = props
   const classes = classNames(

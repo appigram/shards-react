@@ -4,7 +4,7 @@ interface NavbarTogglerProps extends ButtonHTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const NavbarToggler: React.FunctionComponent<NavbarTogglerProps> = props => {
+const NavbarToggler = (props: NavbarTogglerProps) => {
   const { className, children, tag: Tag, ...attrs } = props
   const classes = classNames(className, "navbar-toggler")
   return (

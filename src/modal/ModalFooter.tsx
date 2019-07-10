@@ -1,9 +1,9 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-interface ModalFooterProps {
+interface ModalFooterProps extends HTMLAttributes<{}> {
   className?: string
 }
-const ModalFooter: React.FunctionComponent<ModalFooterProps> = props => {
+const ModalFooter = (props: ModalFooterProps) => {
   const { className, children, ...attrs } = props
   const classes = classNames("modal-footer", className)
   return (

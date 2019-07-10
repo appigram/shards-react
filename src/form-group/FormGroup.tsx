@@ -8,7 +8,7 @@ interface FormGroupProps extends HTMLAttributes<{}> {
   tag?: string
   className?: string
 }
-const FormGroup: React.FunctionComponent<FormGroupProps> = props => {
+const FormGroup = (props: FormGroupProps) => {
   const { className, row, disabled, check, inline, tag: Tag, ...attrs } = props
   const classes = classNames(
     className,

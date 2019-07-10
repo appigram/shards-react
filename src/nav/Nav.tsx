@@ -12,7 +12,7 @@ interface NavProps extends HTMLAttributes<{}> {
   vertical?: boolean | string
   tag?: ((...args: any[]) => any) | string
 }
-const Nav: React.FunctionComponent<NavProps> = props => {
+const Nav = (props: NavProps) => {
   const {
     className,
     navbar,

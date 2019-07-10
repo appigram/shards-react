@@ -6,7 +6,7 @@ interface InputGroupProps extends HTMLAttributes<{}> {
   seamless?: boolean
   tag?: ((...args: any[]) => any) | string
 }
-const InputGroup: React.FunctionComponent<InputGroupProps> = props => {
+const InputGroup = (props: InputGroupProps) => {
   const { className, tag: Tag, size, seamless, ...attrs } = props
   const classes = classNames(
     className,

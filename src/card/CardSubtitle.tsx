@@ -4,7 +4,7 @@ interface CardSubtitleProps extends HTMLAttributes<{}> {
   className?: string
   tag?: ((...args: any[]) => any) | string
 }
-const CardSubtitle: React.FunctionComponent<CardSubtitleProps> = props => {
+const CardSubtitle = (props: CardSubtitleProps) => {
   const { className, tag: Tag, ...attrs } = props
   const classes = classNames(className, "card-subtitle", "text-muted")
   // @ts-ignore idk

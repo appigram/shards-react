@@ -6,7 +6,7 @@ interface FormFeedbackProps extends HTMLAttributes<{}> {
   valid?: boolean
   tooltip?: boolean
 }
-const FormFeedback: React.FunctionComponent<FormFeedbackProps> = props => {
+const FormFeedback = (props: FormFeedbackProps) => {
   const { className, valid, tooltip, tag: Tag, ...attrs } = props
   const validMode = tooltip ? "tooltip" : "feedback"
   const classes = classNames(

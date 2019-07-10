@@ -5,7 +5,7 @@ interface CardLinkProps extends LinkHTMLAttributes<{}> {
   tag?: ((...args: any[]) => any) | string
   innerRef?: Ref<HTMLLinkElement>
 }
-const CardLink: React.FunctionComponent<CardLinkProps> = props => {
+const CardLink = (props: CardLinkProps) => {
   const { className, tag: Tag, innerRef, ...attrs } = props
   const classes = classNames(className, "card-link")
   // @ts-ignore idk
