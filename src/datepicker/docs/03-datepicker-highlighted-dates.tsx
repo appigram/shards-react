@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { DatePicker } from "../../index"
 interface DatepickerHighlightedDatesExampleState {
   startDate: Date
@@ -8,7 +8,7 @@ interface DatepickerHighlightedDatesExampleState {
  *
  * You can highlight certain dates using the `highlightDates` prop.
  */
-export default class DatepickerHighlightedDatesExample extends React.Component<
+export default class DatepickerHighlightedDatesExample extends Component<
   {},
   DatepickerHighlightedDatesExampleState
 > {

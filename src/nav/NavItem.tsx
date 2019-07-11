@@ -1,20 +1,20 @@
-import React, { LiHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface NavItemProps extends LiHTMLAttributes<{}> {
+import { HTMLProps, HTMLTag } from "../html"
+interface NavItemProps extends HTMLProps<"li"> {
   active?: boolean
   disabled?: boolean
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const NavItem = (props: NavItemProps) => {
-  const { className, active, disabled, tag: Tag, ...attrs } = props
+  const { className, active, disabled, tag, ...attrs } = props
   const classes = classNames(
     className,
     "nav-item",
     active && "active",
     disabled && "disabled"
   )
-  // @ts-ignore idk
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 NavItem.defaultProps = {

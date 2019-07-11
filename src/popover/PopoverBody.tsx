@@ -1,13 +1,14 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface PopoverBodyProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface PopoverBodyProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const PopoverBody = (props: PopoverBodyProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "popover-body")
-  // @ts-ignore idk
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 PopoverBody.defaultProps = {

@@ -1,9 +1,9 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ModalHeaderProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface ModalHeaderProps extends HTMLProps<"div"> {
   toggle?(...args: any[]): any
-  tag?: string
+  tag?: HTMLTag
   closeAriaLabel?: string
   titleClass?: string
 }
@@ -12,7 +12,7 @@ const ModalHeader = (props: ModalHeaderProps) => {
     className,
     children,
     toggle,
-    tag: Tag,
+    tag,
     closeAriaLabel,
     titleClass,
     ...attrs
@@ -32,9 +32,9 @@ const ModalHeader = (props: ModalHeaderProps) => {
       </button>
     )
   }
+  const Tag = tag!
   return (
     <div className={classes} {...attrs}>
-      // @ts-ignore idk
       <Tag className={titleClasses}>{children}</Tag>
       {closeButton}
     </div>

@@ -1,5 +1,6 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Alert } from "../../index"
+
 interface DismissibleAlertExampleState {
   visible: boolean
 }
@@ -8,7 +9,7 @@ interface DismissibleAlertExampleState {
  *
  * Dismissible alerts allow you to hide them using an `X` button.
  */
-export default class DismissibleAlertExample extends React.Component<
+export default class DismissibleAlertExample extends Component<
   {},
   DismissibleAlertExampleState
 > {

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import Button from ".."
 import Collapse from ".."
 interface BasicCollapseExampleState {
@@ -7,7 +7,7 @@ interface BasicCollapseExampleState {
 /**
  * ## Basic Example
  */
-export default class BasicCollapseExample extends React.Component<
+export default class BasicCollapseExample extends Component<
   {},
   BasicCollapseExampleState
 > {

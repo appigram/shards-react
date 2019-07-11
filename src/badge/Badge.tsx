@@ -1,15 +1,15 @@
-import React, { LinkHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface BadgeProps extends LinkHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface BadgeProps extends HTMLProps<"a"> {
   theme?: string
   outline?: boolean
   pill?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Badge = (props: BadgeProps) => {
   // tslint:disable-next-line: prefer-const
-  let { tag: Tag, className, theme, pill, outline, ...attrs } = props
+  let { tag, className, theme, pill, outline, ...attrs } = props
   const classes = classNames(
     className,
     "badge",
@@ -17,8 +17,8 @@ const Badge = (props: BadgeProps) => {
     outline && `badge-outline-${theme}`,
     pill && "badge-pill"
   )
-  Tag = attrs.href && Tag === "span" ? "a" : Tag
-  // @ts-ignore idk
+  const Tag = tag === "span" && attrs.href ? "a" : tag!
+
   return <Tag {...attrs} className={classes} />
 }
 Badge.defaultProps = {

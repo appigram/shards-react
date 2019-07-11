@@ -1,7 +1,7 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface NavProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLProps, HTMLTag } from "../html"
+interface NavProps extends HTMLProps<"div"> {
   navbar?: boolean
   horizontal?: string
   tabs?: boolean
@@ -10,7 +10,7 @@ interface NavProps extends HTMLAttributes<{}> {
   justified?: boolean
   fill?: boolean
   vertical?: boolean | string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Nav = (props: NavProps) => {
   const {
@@ -23,7 +23,7 @@ const Nav = (props: NavProps) => {
     pills,
     justified,
     fill,
-    tag: Tag,
+    tag,
     ...attrs
   } = props
   let verticalClass
@@ -46,7 +46,7 @@ const Nav = (props: NavProps) => {
     justified && "nav-justified",
     fill && "nav-fill"
   )
-  // @ts-ignore idk
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 Nav.defaultProps = {

@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Button } from "../../index"
 /**
  * ## Mixed Outline-Squared Style

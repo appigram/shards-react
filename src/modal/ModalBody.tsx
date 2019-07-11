@@ -1,8 +1,7 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ModalBodyProps extends HTMLAttributes<{}> {
-  className?: string
-}
+import { HTMLTag, HTMLProps } from "../html"
+interface ModalBodyProps extends HTMLProps<"div"> {}
 const ModalBody = (props: ModalBodyProps) => {
   const { className, children, ...attrs } = props
   const classes = classNames("modal-body", className)

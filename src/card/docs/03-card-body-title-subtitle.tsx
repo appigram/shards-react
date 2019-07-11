@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Card, CardBody, CardTitle, CardSubtitle } from "../../index"
 /**
  * ## Card Body Title and Subtitle

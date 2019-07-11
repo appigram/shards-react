@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import ReactDatePicker, { ReactDatePickerProps } from "react-datepicker"
 import classNames from "classnames"
 import "react-datepicker/dist/react-datepicker.css"

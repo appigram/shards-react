@@ -1,17 +1,18 @@
-import React from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
 import omit from "lodash.omit"
 import { getTarget } from "../utils"
-import { TIMEOUT, EVENTS, POPPER_PLACEMENTS } from "../constants"
+import { TIMEOUT, EVENTS } from "../constants"
 import PopperManager from "../PopperManager"
 import Popper from "popper.js"
-interface TooltipProps {
+import { HTMLProps } from "../html"
+
+interface TooltipProps extends HTMLProps<"div"> {
   target: string
   container?: "inline" | string
   trigger?: string
   open?: boolean
   disabled?: boolean
-  className?: string
   arrowClassName?: string
   innerClassName?: string
   offset?: string | number
@@ -32,7 +33,7 @@ interface TooltipProps {
 /**
  * Tooltips are powerful components powered behind the scenes by Popper.js that can be attached to any element.
  */
-export default class Tooltip extends React.Component<TooltipProps, {}> {
+export default class Tooltip extends Component<TooltipProps, {}> {
   private _target?: Element
   private _hideTimeout?: number
   private _showTimeout?: number
@@ -182,16 +183,19 @@ export default class Tooltip extends React.Component<TooltipProps, {}> {
       clearTimeout(this._hideTimeout)
     }
   }
-  public handleMouseLeaveContent(e: React.MouseEvent) {
+  public handleMouseLeaveContent(e: MouseEvent) {
     if (this.props.autohide) {
       return
     }
     if (this._showTimeout) {
       clearTimeout(this._showTimeout)
     }
-    e.persist()
+
+    const reactEvent = e as any
+    if (reactEvent.persist) reactEvent.persist()
+
     this._hideTimeout = window.setTimeout(
-      this.hide.bind(this, e.nativeEvent),
+      this.hide.bind(this, reactEvent.nativeEvent || e),
       this.getDelay("hide")
     )
   }

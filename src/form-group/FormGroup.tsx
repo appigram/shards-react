@@ -1,15 +1,16 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface FormGroupProps extends HTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormGroupProps extends HTMLProps<"div"> {
   row?: boolean
   check?: boolean
   inline?: boolean
   disabled?: boolean
-  tag?: string
-  className?: string
+  tag?: HTMLTag
 }
 const FormGroup = (props: FormGroupProps) => {
-  const { className, row, disabled, check, inline, tag: Tag, ...attrs } = props
+  const { className, row, disabled, check, inline, tag, ...attrs } = props
   const classes = classNames(
     className,
     row && "row",
@@ -17,7 +18,8 @@ const FormGroup = (props: FormGroupProps) => {
     check && inline && "form-check-inline",
     check && disabled && "disabled"
   )
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 FormGroup.defaultProps = {

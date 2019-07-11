@@ -1,12 +1,12 @@
-import React from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
 import PopperManager from "../PopperManager"
 import { getTarget } from "../utils"
 import { EVENTS, TIMEOUT } from "../constants"
 import Popper from "popper.js"
+import { HTMLTag, HTMLProps } from "../html"
 
-interface PopoverProps {
-  className?: string
+interface PopoverProps extends HTMLProps<"div"> {
   target: string
   container?: "inline" | string
   modifiers?: object
@@ -30,7 +30,7 @@ interface PopoverProps {
 /**
  * Popovers are powerful elements similar to tooltips and powered by Popper.js that can be applies to any interactive element.
  */
-export default class Popover extends React.Component<PopoverProps, {}> {
+export default class Popover extends Component<PopoverProps, {}> {
   private _target?: Element
   private readonly _popover?: Element
   private _hideTimeout?: number

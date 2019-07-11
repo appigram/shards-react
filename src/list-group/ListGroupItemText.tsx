@@ -1,15 +1,15 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ListGroupItemTextProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface ListGroupItemTextProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
-const ListGroupItemText: React.FunctionComponent<
-  ListGroupItemTextProps
-> = props => {
-  const { className, tag: Tag, ...attrs } = props
+const ListGroupItemText = (props: ListGroupItemTextProps) => {
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "list-group-item-text")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 ListGroupItemText.defaultProps = {

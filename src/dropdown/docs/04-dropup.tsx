@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -13,10 +13,7 @@ interface DropupExampleState {
  *
  * Turning dropdown menus into drop-up menus can be easily achieved using the `dropup` prop applied on the `Dropdown` component.
  */
-export default class DropupExample extends React.Component<
-  {},
-  DropupExampleState
-> {
+export default class DropupExample extends Component<{}, DropupExampleState> {
   constructor(props: {}) {
     super(props)
     this.toggle = this.toggle.bind(this)

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import Button from ".."
 import Collapse from ".."
 interface CollapseInitialVisibilityExampleState {
@@ -9,7 +9,7 @@ interface CollapseInitialVisibilityExampleState {
  *
  * You can control the visibility of your collapsed element via the `open` prop.
  */
-export default class CollapseInitialVisibilityExample extends React.Component<
+export default class CollapseInitialVisibilityExample extends Component<
   {},
   CollapseInitialVisibilityExampleState
 > {

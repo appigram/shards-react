@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormCheckbox } from "../../index"
 interface BasicToggleExampleState {
   checked: boolean
@@ -8,7 +8,7 @@ interface BasicToggleExampleState {
  *
  * Checkboxes can be turned into toggles by using the `toggle` prop.
  */
-class BasicToggleExample extends React.Component<{}, BasicToggleExampleState> {
+class BasicToggleExample extends Component<{}, BasicToggleExampleState> {
   constructor(props: {}) {
     super(props)
     this.state = {

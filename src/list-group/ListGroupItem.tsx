@@ -1,23 +1,16 @@
-import React, { LiHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ListGroupItemProps extends LiHTMLAttributes<{}> {
+import { HTMLProps, HTMLTag } from "../html"
+
+interface ListGroupItemProps extends HTMLProps<"li"> {
   active?: boolean
   disabled?: boolean
   theme?: string
-  action?: boolean
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const ListGroupItem = (props: ListGroupItemProps) => {
-  const {
-    className,
-    tag: Tag,
-    active,
-    action,
-    disabled,
-    theme,
-    ...attrs
-  } = props
+  const { className, tag, active, action, disabled, theme, ...attrs } = props
+  const Tag = tag!
   const classes = classNames(
     className,
     active && "active",
@@ -29,7 +22,6 @@ const ListGroupItem = (props: ListGroupItemProps) => {
 
   if (disabled) {
     return (
-      // @ts-ignore idk
       <Tag
         {...attrs}
         onClick={(e: Event) => e.preventDefault()}
@@ -37,7 +29,6 @@ const ListGroupItem = (props: ListGroupItemProps) => {
       />
     )
   } else {
-    // @ts-ignore idk
     return <Tag {...attrs} className={classes} />
   }
 }

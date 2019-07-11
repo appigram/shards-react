@@ -1,4 +1,4 @@
-import React, { Ref } from "react"
+import { h, Ref, Component } from "preact"
 import ReactDOM from "react-dom"
 import * as PopperJS from "popper.js"
 
@@ -6,8 +6,9 @@ import * as PopperJS from "popper.js"
 import { Popper } from "react-popper"
 import classNames from "classnames"
 import { getTarget } from "./utils"
+import { HTMLTag, HTMLProps } from "./html"
 
-interface PopperManagerProps {
+interface PopperManagerProps extends HTMLProps<"div"> {
   target: string
   container: "inline" | string
   open?: boolean
@@ -22,8 +23,7 @@ interface PopperManagerProps {
   placementPrefix?: string
   arrowClassName?: string
   noArrow?: boolean
-  className?: string
-  tag?: string
+  tag?: HTMLTag
   modifiers?: object
   boundariesElement?: PopperJS.Boundary
   placement?: PopperJS.Placement
@@ -38,7 +38,7 @@ interface IPopperRenderer {
 interface PopperManagerState {
   placement: PopperJS.Placement | null
 }
-export default class PopperManager extends React.Component<
+export default class PopperManager extends Component<
   PopperManagerProps,
   PopperManagerState
 > {

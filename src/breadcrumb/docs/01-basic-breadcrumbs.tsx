@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Breadcrumb, BreadcrumbItem } from "../../index"
 /**
  * ## Basic Example

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormTextarea } from "../../index"
 interface BasicFormTextareaState {
   value: string | null
@@ -6,7 +6,7 @@ interface BasicFormTextareaState {
 /**
  * ## Basic Example
  */
-export default class BasicFormTextarea extends React.Component<
+export default class BasicFormTextarea extends Component<
   {},
   BasicFormTextareaState
 > {
@@ -15,8 +15,9 @@ export default class BasicFormTextarea extends React.Component<
     this.handleChange = this.handleChange.bind(this)
     this.state = { value: null }
   }
-  public handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ value: e.target.value })
+  public handleChange(e: Event) {
+    const target = e.target as HTMLTextAreaElement
+    this.setState({ value: target.value })
   }
   public render() {
     const { value } = this.state

@@ -1,13 +1,15 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardImgOverlayProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface CardImgOverlayProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardImgOverlay = (props: CardImgOverlayProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-img-overlay")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 CardImgOverlay.defaultProps = {

@@ -1,9 +1,10 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ButtonGroupProps extends HTMLAttributes<{}> {
-  className?: string
-  size?: string
+import { HTMLProps } from "../html"
+
+interface ButtonGroupProps extends Omit<HTMLProps<"div">, "size"> {
   vertical?: boolean
+  size?: string
 }
 const ButtonGroup = (props: ButtonGroupProps) => {
   const { className, vertical, size, ...attrs } = props

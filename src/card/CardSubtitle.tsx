@@ -1,13 +1,15 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardSubtitleProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface CardSubtitleProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardSubtitle = (props: CardSubtitleProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-subtitle", "text-muted")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 CardSubtitle.defaultProps = {

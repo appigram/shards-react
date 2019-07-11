@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Alert, Button } from "../../index"
 type SelfDismissingAlertExampleState = {
   visible: boolean
@@ -11,7 +11,7 @@ type SelfDismissingAlertExampleState = {
  *
  * Self-dismissible alerts can also be created using a few state tricks.
  */
-export default class SelfDismissingAlertExample extends React.Component<
+export default class SelfDismissingAlertExample extends Component<
   {},
   SelfDismissingAlertExampleState
 > {

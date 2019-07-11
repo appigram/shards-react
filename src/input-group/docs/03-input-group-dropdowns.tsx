@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   InputGroup,
   FormInput,
@@ -15,7 +15,7 @@ interface InputGroupDropdownExampleState {
  *
  * You can create dropdowns inside input groups via the `addonType` prop on the `Dropdown` component.
  */
-export default class InputGroupDropdownExample extends React.Component<
+export default class InputGroupDropdownExample extends Component<
   {},
   InputGroupDropdownExampleState
 > {

@@ -1,21 +1,18 @@
-import React, { HTMLAttributes } from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
 import { Popper } from "react-popper"
 import { DropdownContext } from "./DropdownContext"
 import { DROPDOWN_POSITION_MAP } from "../constants"
-interface DropdownMenuProps extends HTMLAttributes<{}> {
-  tag?: string
+import { HTMLProps, HTMLTag } from "../html"
+interface DropdownMenuProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
   right?: boolean
   flip?: boolean
   small?: boolean
   modifiers?: object
-  className?: string
   persist?: boolean
 }
-export default class DropdownMenu extends React.Component<
-  DropdownMenuProps,
-  {}
-> {
+export default class DropdownMenu extends Component<DropdownMenuProps, {}> {
   public static contextType = DropdownContext
 
   public static defaultProps = {
@@ -27,7 +24,7 @@ export default class DropdownMenu extends React.Component<
       className,
       children,
       right,
-      tag: Tag,
+      tag,
       flip,
       small,
       modifiers,
@@ -42,6 +39,7 @@ export default class DropdownMenu extends React.Component<
       this.context.open && "show"
     )
     const attrsOther = attrs as any
+    const Tag = tag!
     if (persist || (this.context.open && !this.context.inNavbar)) {
       const pos1 =
         (DROPDOWN_POSITION_MAP as any)[this.context.direction] || "bottom"
@@ -76,8 +74,7 @@ export default class DropdownMenu extends React.Component<
       )
     }
     return (
-      // @ts-ignore idk
-      <Tag tabIndex="-1" role="menu" {...attrs} className={classes}>
+      <Tag tabIndex={-1} role="menu" {...attrs} className={classes}>
         {children}
       </Tag>
     )

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Button, Modal, ModalBody, ModalHeader } from "../../index"
 interface ModalSizeExampleState {
   open: boolean
@@ -8,7 +8,7 @@ interface ModalSizeExampleState {
  *
  * The modal's size can be adjusted via the `size` prop. You can use `sm` for small and `lg` for large.
  */
-export default class ModalSizeExample extends React.Component<
+export default class ModalSizeExample extends Component<
   {},
   ModalSizeExampleState
 > {

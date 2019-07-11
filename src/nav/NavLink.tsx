@@ -1,14 +1,14 @@
-import React, { LinkHTMLAttributes, Ref } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
-interface NavLinkProps extends LinkHTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+interface NavLinkProps extends HTMLProps<"a"> {
   disabled?: boolean
   active?: boolean
-  className?: string
   href?: string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
   innerRef?: Ref<HTMLLinkElement>
 }
-export default class NavLink extends React.Component<NavLinkProps, {}> {
+export default class NavLink extends Component<NavLinkProps, {}> {
   public static defaultProps = {
     tag: "a"
   }
@@ -16,7 +16,7 @@ export default class NavLink extends React.Component<NavLinkProps, {}> {
     super(props)
     this.handleOnClick = this.handleOnClick.bind(this)
   }
-  public handleOnClick(e: React.MouseEvent) {
+  public handleOnClick(e: MouseEvent) {
     if (this.props.disabled) {
       e.preventDefault()
       return
@@ -29,22 +29,15 @@ export default class NavLink extends React.Component<NavLinkProps, {}> {
     }
   }
   public render() {
-    const {
-      className,
-      active,
-      disabled,
-      tag: Tag,
-      innerRef,
-      ...attrs
-    } = this.props
+    const { className, active, disabled, tag, innerRef, ...attrs } = this.props
     const classes = classNames(
       className,
       "nav-link",
       disabled && "disabled",
       active && "active"
     )
+    const Tag = tag!
     return (
-      // @ts-ignore idk
       <Tag
         {...attrs}
         ref={innerRef}

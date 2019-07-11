@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormCheckbox } from "../../index"
 interface FormCheckboxExampleState {
   orange: boolean
@@ -8,7 +8,7 @@ interface FormCheckboxExampleState {
 /**
  * ## Basic Checkbox
  */
-export default class FormCheckboxExample extends React.Component<
+export default class FormCheckboxExample extends Component<
   {},
   FormCheckboxExampleState
 > {

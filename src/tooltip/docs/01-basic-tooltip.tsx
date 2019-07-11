@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Tooltip, Button } from "../../index"
 interface TooltipExampleState {
   open: boolean
@@ -8,10 +8,7 @@ interface TooltipExampleState {
  *
  * Tooltips can be created using the `Tooltip` component.
  */
-export default class TooltipExample extends React.Component<
-  {},
-  TooltipExampleState
-> {
+export default class TooltipExample extends Component<{}, TooltipExampleState> {
   constructor(props: {}) {
     super(props)
     this.toggle = this.toggle.bind(this)

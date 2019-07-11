@@ -1,20 +1,21 @@
-import React, { AriaAttributes, HTMLAttributes } from "react"
+import { h } from "preact"
 import { Reference } from "react-popper"
 import classNames from "classnames"
 import Button from "../button"
 import { DropdownContext } from "./DropdownContext"
-interface DropdownToggleProps extends HTMLAttributes<{}>, AriaAttributes {
+import { Component } from "preact"
+import { HTMLTag, HTMLProps } from "../html"
+interface DropdownToggleProps extends HTMLProps<"div"> {
   caret?: boolean
   theme?: string
-  className?: string
   disabled?: boolean
-  onClick?(e: React.MouseEvent): void
+  onClick?(e: MouseEvent): void
   "aria-haspopup"?: boolean
   split?: boolean
   nav?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
-class DropdownToggle extends React.Component<DropdownToggleProps, {}> {
+class DropdownToggle extends Component<DropdownToggleProps, {}> {
   public static defaultProps = {
     "aria-haspopup": true,
     theme: "primary"
@@ -23,7 +24,7 @@ class DropdownToggle extends React.Component<DropdownToggleProps, {}> {
     super(props)
     this.onClick = this.onClick.bind(this)
   }
-  public onClick(e: React.MouseEvent) {
+  public onClick(e: MouseEvent) {
     if (this.props.disabled) {
       e.preventDefault()
       return
@@ -38,7 +39,7 @@ class DropdownToggle extends React.Component<DropdownToggleProps, {}> {
   }
   public render() {
     const { className, theme, caret, split, nav, tag, ...attrs } = this.props
-    const ariaLabel = attrs["aria-label"] || "Toggle Dropdown"
+    const ariaLabel = (attrs as any)["aria-label"] || "Toggle Dropdown"
     const classes = classNames(
       className,
       (caret || split) && "dropdown-toggle",

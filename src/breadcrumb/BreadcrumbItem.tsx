@@ -1,15 +1,15 @@
-import React, { LiHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface BreadcrumbItemProps extends LiHTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+interface BreadcrumbItemProps extends HTMLProps<"li"> {
   active?: boolean
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const BreadcrumbItem = (props: BreadcrumbItemProps) => {
-  const { className, active, tag: Tag, ...attrs } = props
+  const { className, active, tag, ...attrs } = props
   const classes = classNames(className, active && "active", "breadcrumb-item")
+  const Tag = tag!
   return (
-    // @ts-ignore idk
     <Tag
       {...attrs}
       className={classes}

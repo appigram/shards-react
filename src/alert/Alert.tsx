@@ -1,8 +1,9 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
 import Fade from "../fade"
-interface AlertProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface AlertProps extends HTMLProps<"div"> {
   closeClassName?: string
   closeAriaLabel?: string
   theme?: string
@@ -10,14 +11,14 @@ interface AlertProps extends HTMLAttributes<{}> {
   open?: boolean
   dismissible?(...args: any[]): any
   transition?: any
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Alert = (props: AlertProps) => {
   const {
     className,
     closeClassName,
     closeAriaLabel,
-    tag: Tag,
+    tag,
     theme,
     open,
     dismissible,
@@ -26,6 +27,7 @@ const Alert = (props: AlertProps) => {
     fade,
     ...attrs
   } = props
+  const Tag = tag!
   const classes = classNames(
     className,
     "alert",

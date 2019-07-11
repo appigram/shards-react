@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Button, ButtonGroup } from "../../index"
 /**
  * ## Vertical Button Groups

@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Form, FormInput, FormGroup } from "../../index"
 /**
  * ## Basic Example

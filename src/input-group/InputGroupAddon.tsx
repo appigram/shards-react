@@ -1,26 +1,23 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
 import InputGroupText from "./InputGroupText"
-interface InputGroupAddonProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLProps, HTMLTag } from "../html"
+interface InputGroupAddonProps extends HTMLProps<"div"> {
   type: string
-  tag?: string
+  tag?: HTMLTag
 }
-const InputGroupAddon: React.FunctionComponent<
-  InputGroupAddonProps
-> = props => {
-  const { className, children, tag: Tag, type, ...attrs } = props
+const InputGroupAddon = (props: InputGroupAddonProps) => {
+  const { className, children, tag, type, ...attrs } = props
   const classes = classNames(className, `input-group-${type}`)
+  const Tag = tag!
   if (typeof children === "string") {
     return (
-      // @ts-ignore idk
       <Tag {...attrs} className={classes}>
         <InputGroupText>{children}</InputGroupText>
       </Tag>
     )
   }
   return (
-    // @ts-ignore idk
     <Tag {...attrs} className={classes}>
       {children}
     </Tag>

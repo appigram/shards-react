@@ -1,16 +1,17 @@
-import React, { Ref } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
-interface FormSelectProps {
-  className?: string
-  size?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormSelectProps extends Omit<HTMLProps<"select">, "size"> {
   valid?: boolean
   invalid?: boolean
+  size?: string
   innerRef?: Ref<HTMLSelectElement>
 }
 /**
  * The `FormSelect` component is a wrapper over Bootstrap's [custom select component](https://getbootstrap.com/docs/4.1/components/forms/#select-menu).
  */
-class FormSelect extends React.Component<FormSelectProps, {}> {
+class FormSelect extends Component<FormSelectProps, {}> {
   private ref?: HTMLSelectElement | null
   constructor(props: FormSelectProps) {
     super(props)

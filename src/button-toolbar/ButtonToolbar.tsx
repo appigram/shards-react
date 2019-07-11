@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ButtonToolbarProps extends HTMLAttributes<{}> {
-  className?: string
-}
+import { HTMLTag, HTMLProps } from "../html"
+
+interface ButtonToolbarProps extends HTMLProps<"div"> {}
 const ButtonToolbar = (props: ButtonToolbarProps) => {
   const { className, ...attrs } = props
   const classes = classNames(className, "btn-toolbar")

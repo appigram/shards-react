@@ -1,11 +1,12 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardHeaderProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface CardHeaderProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardHeader = (props: CardHeaderProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-header")
   // @ts-ignore
   return <Tag {...attrs} className={classes} />

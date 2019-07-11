@@ -1,20 +1,22 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface InputGroupProps extends HTMLAttributes<{}> {
-  className?: string
-  size?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface InputGroupProps extends Omit<HTMLProps<"div">, "size"> {
   seamless?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
+  size?: string
 }
 const InputGroup = (props: InputGroupProps) => {
-  const { className, tag: Tag, size, seamless, ...attrs } = props
+  const { className, tag, size, seamless, ...attrs } = props
   const classes = classNames(
     className,
     "input-group",
     seamless && "input-group-seamless",
     size && `input-group-${size}`
   )
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 InputGroup.defaultProps = {

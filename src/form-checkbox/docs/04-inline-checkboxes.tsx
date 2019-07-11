@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormCheckbox } from "../../index"
 interface InlineCheckboxesState {
   basketball: boolean
@@ -10,7 +10,7 @@ interface InlineCheckboxesState {
  *
  * Checkboxes can also be displayed inline using the `inline` prop.
  */
-export default class InlineCheckboxes extends React.Component<
+export default class InlineCheckboxes extends Component<
   {},
   InlineCheckboxesState
 > {

@@ -1,16 +1,17 @@
-import React, { Ref, InputHTMLAttributes } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
 import shortid from "shortid"
-interface FormRadioProps extends InputHTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormRadioProps extends HTMLProps<"input"> {
   id?: string
-  className?: string
   inline?: boolean
   valid?: boolean
   onChange?(...args: any[]): any
   invalid?: boolean
   innerRef?: Ref<HTMLInputElement>
 }
-export default class FormRadio extends React.Component<FormRadioProps, {}> {
+export default class FormRadio extends Component<FormRadioProps, {}> {
   public static defaultProps = {
     onChange: () => {}
   }

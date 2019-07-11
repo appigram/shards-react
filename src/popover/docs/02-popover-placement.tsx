@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Button, Popover, PopoverBody, PopoverHeader } from "../../index"
 interface PopoverPlacementExampleState {
   open: boolean
@@ -8,7 +8,7 @@ interface PopoverPlacementExampleState {
  *
  * Using the `placement` prop you can adjust where your popover will be displayed.
  */
-export default class PopoverPlacementExample extends React.Component<
+export default class PopoverPlacementExample extends Component<
   {},
   PopoverPlacementExampleState
 > {

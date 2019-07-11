@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Nav, NavItem, NavLink } from "../../index"
 /**
  * ## Pills Style

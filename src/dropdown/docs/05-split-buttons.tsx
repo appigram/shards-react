@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -14,7 +14,7 @@ interface DropdownSplitExampleState {
  *
  * Using the `group` prop applied on the `Dropdown` component and the `split` prop applied on the `DropdownToggle` component you can create split-type dropdowns.
  */
-export default class DropdownSplitExample extends React.Component<
+export default class DropdownSplitExample extends Component<
   {},
   DropdownSplitExampleState
 > {

@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 import { Container, Row, Col, Card, CardBody, CardImg } from "../../index"
 /**
  * ## Card Image

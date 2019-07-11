@@ -1,8 +1,7 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ModalFooterProps extends HTMLAttributes<{}> {
-  className?: string
-}
+import { HTMLTag, HTMLProps } from "../html"
+interface ModalFooterProps extends HTMLProps<"div"> {}
 const ModalFooter = (props: ModalFooterProps) => {
   const { className, children, ...attrs } = props
   const classes = classNames("modal-footer", className)

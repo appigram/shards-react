@@ -1,19 +1,19 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface FormFeedbackProps extends HTMLAttributes<{}> {
-  tag?: string
-  className?: string
+import { HTMLProps, HTMLTag } from "../html"
+interface FormFeedbackProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
   valid?: boolean
   tooltip?: boolean
 }
 const FormFeedback = (props: FormFeedbackProps) => {
-  const { className, valid, tooltip, tag: Tag, ...attrs } = props
+  const { className, valid, tooltip, tag, ...attrs } = props
   const validMode = tooltip ? "tooltip" : "feedback"
   const classes = classNames(
     className,
     valid ? `valid-${validMode}` : `invalid-${validMode}`
   )
-  // @ts-ignore idk
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 FormFeedback.defaultProps = {

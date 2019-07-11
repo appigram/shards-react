@@ -1,13 +1,14 @@
-import React, { ImgHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardImgProps extends ImgHTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+
+interface CardImgProps extends HTMLProps<"img"> {
   top?: boolean
   bottom?: boolean
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const CardImg = (props: CardImgProps) => {
-  const { className, top, bottom, tag: Tag, ...attrs } = props
+  const { className, top, bottom, tag, ...attrs } = props
   let cardImgClass = ""
   if (top) {
     cardImgClass = "card-img-top"
@@ -16,7 +17,8 @@ const CardImg = (props: CardImgProps) => {
     cardImgClass = "card-img-bottom"
   }
   cardImgClass = classNames(className, cardImgClass)
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={cardImgClass} />
 }
 CardImg.defaultProps = {

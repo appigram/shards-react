@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormRadio } from "../../index"
 interface FormRadioExampleState {
   selectedSport: string | null
@@ -8,7 +8,7 @@ interface FormRadioExampleState {
  *
  * Radios can also be displayed inline using the `inline` prop.
  */
-export default class FormRadioExample extends React.Component<
+export default class FormRadioExample extends Component<
   {},
   FormRadioExampleState
 > {

@@ -1,19 +1,22 @@
-import React, { Ref } from "react"
+import { h, Ref } from "preact"
 import classNames from "classnames"
 import Transition, { TransitionProps } from "react-transition-group/Transition"
 import omit from "lodash.omit"
 import pick from "lodash.pick"
 import { TIMEOUT, TRANSITION_KEYS } from "../constants"
-interface FadeProps extends Partial<TransitionProps> {
-  tag?: string | ((...args: any[]) => any)
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FadeProps
+  extends HTMLProps<"div">,
+    Partial<Omit<TransitionProps, "children">> {
+  tag?: HTMLTag
   baseClass?: string
   baseClassActive?: string
-  className?: string
   innerRef?: Ref<Transition>
 }
 const Fade = (props: FadeProps) => {
   const {
-    tag: Tag,
+    tag,
     baseClass,
     baseClassActive,
     className,
@@ -23,6 +26,7 @@ const Fade = (props: FadeProps) => {
   } = props
   const transitionProps = pick(attrs, TRANSITION_KEYS) as TransitionProps
   const childProps = omit(attrs, TRANSITION_KEYS)
+  const Tag = tag!
   return (
     <Transition {...transitionProps}>
       {status => {
@@ -33,7 +37,6 @@ const Fade = (props: FadeProps) => {
           isActive && baseClassActive
         )
         return (
-          // @ts-ignore idk
           <Tag className={classes} {...childProps} ref={innerRef}>
             {children}
           </Tag>

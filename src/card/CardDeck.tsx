@@ -1,13 +1,14 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardDeckProps extends HTMLAttributes<{}> {
-  tag?: ((...args: any[]) => any) | string
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface CardDeckProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardDeck = (props: CardDeckProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-deck")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 CardDeck.defaultProps = {

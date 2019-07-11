@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -13,7 +13,7 @@ interface DropdownPositionExampleState {
  *
  * By default `DropdownMenu`s are left aligned. However, you can change this by applying a right alignment using the `right` prop.
  */
-export default class DropdownPositionExample extends React.Component<
+export default class DropdownPositionExample extends Component<
   {},
   DropdownPositionExampleState
 > {

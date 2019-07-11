@@ -1,27 +1,19 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface NavbarProps extends HTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+
+interface NavbarProps extends HTMLProps<"div"> {
   full?: boolean
   fixed?: string
   sticky?: string
   theme?: string
   role?: string
-  className?: string
   type?: "dark" | "light"
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
   expand?: boolean | string
 }
 const Navbar = (props: NavbarProps) => {
-  const {
-    className,
-    expand,
-    fixed,
-    sticky,
-    theme,
-    type,
-    tag: Tag,
-    ...attrs
-  } = props
+  const { className, expand, fixed, sticky, theme, type, tag, ...attrs } = props
   let expandClass
   if (expand === false) {
     expandClass = false
@@ -40,7 +32,8 @@ const Navbar = (props: NavbarProps) => {
     fixed && `fixed-${fixed}`,
     sticky && `sticky-${sticky}`
   )
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 Navbar.defaultProps = {

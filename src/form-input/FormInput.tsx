@@ -1,7 +1,8 @@
-import React, { Ref, FormHTMLAttributes } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
-interface FormInputProps extends FormHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormInputProps extends Omit<HTMLProps<"form">, "size"> {
   inline?: boolean
   type?: string
   plaintext?: boolean
@@ -13,7 +14,7 @@ interface FormInputProps extends FormHTMLAttributes<{}> {
 /**
  * The form input allows you to create various text style inputs such as `text`, `password`, `email`, `number`, `url`, `search` and more.
  */
-class FormInput extends React.Component<FormInputProps, {}> {
+class FormInput extends Component<FormInputProps, {}> {
   private ref: HTMLInputElement | null
 
   constructor(props: FormInputProps) {

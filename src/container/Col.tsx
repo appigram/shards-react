@@ -1,6 +1,7 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
 import { BREAKPOINTS, BreakPoint } from "../constants"
+import { HTMLTag, HTMLProps } from "../html"
 
 const makeColumnClass = (
   isXs: boolean,
@@ -14,7 +15,7 @@ const makeColumnClass = (
   }
   return isXs ? `col-${colSize}` : `col-${breakpoint}-${colSize}`
 }
-interface ColProps extends HTMLAttributes<{}> {
+interface ColProps extends HTMLProps<"div"> {
   // tslint:disable: no-any
   xs?: any
   sm?: any
@@ -22,12 +23,11 @@ interface ColProps extends HTMLAttributes<{}> {
   lg?: any
   xl?: any
   // tslint:enable: no-any
-  className?: string
   breakpoints?: BreakPoint[]
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Col = (props: ColProps) => {
-  const { className, breakpoints = [], tag: Tag, ...attrs } = props
+  const { className, breakpoints = [], tag, ...attrs } = props
   const columnClasses = []
   breakpoints.forEach((breakpoint, idx) => {
     const columnProp = props[breakpoint]

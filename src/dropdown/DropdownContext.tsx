@@ -1,4 +1,4 @@
-import React from "react"
+import { h, createContext } from "preact"
 
 export interface IDropDownContext {
   toggle(e: Event): void
@@ -14,4 +14,4 @@ const context: IDropDownContext = {
   nav: false
 }
 
-export const DropdownContext = React.createContext(context)
+export const DropdownContext = createContext(context)

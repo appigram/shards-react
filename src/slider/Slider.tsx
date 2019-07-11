@@ -1,8 +1,10 @@
-import React from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
 import nouislider from "nouislider"
-interface SliderProps extends nouislider.Options {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface SliderProps
+  extends nouislider.Options,
+    Omit<HTMLProps<"div">, "start" | "step"> {
   theme?: string
   cssPrefix?: string
   disabled?: boolean
@@ -18,7 +20,7 @@ interface SliderProps extends nouislider.Options {
 /**
  * The slider component is powered behind the scenes by the [NoUiSlider](https://refreshless.com/nouislider/) library.
  */
-class Slider extends React.Component<SliderProps, {}> {
+class Slider extends Component<SliderProps, {}> {
   private sliderContainer: HTMLDivElement | null = null
   private slider?: nouislider.noUiSlider
 

@@ -1,28 +1,29 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
+import { HTMLTag, HTMLProps } from "../html"
 import classNames from "classnames"
-interface BreadcrumbProps extends HTMLAttributes<{}> {
+
+interface BreadcrumbProps extends HTMLProps<"div"> {
   listClassName?: string
-  className?: string
   "aria-label"?: string
-  tag?: ((...args: any[]) => any) | string
-  listTag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
+  listTag?: HTMLTag
 }
 const Breadcrumb = (props: BreadcrumbProps) => {
   const {
     className,
     listClassName,
     children,
-    tag: Tag,
-    listTag: ListTag,
+    tag,
+    listTag,
     "aria-label": label,
     ...attrs
   } = props
   const classes = classNames(className)
   const listClasses = classNames("breadcrumb", listClassName)
+  const Tag = tag!
+  const ListTag = listTag!
   return (
-    // @ts-ignore idk
     <Tag {...attrs} className={classes} aria-label={label}>
-      // @ts-ignore idk
       <ListTag className={listClasses}>{children}</ListTag>
     </Tag>
   )

@@ -1,10 +1,4 @@
-import React, {
-  AllHTMLAttributes,
-  Attributes,
-  RefAttributes,
-  HTMLAttributes,
-  Ref
-} from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
 import Transition, {
   EnterHandler,
@@ -14,9 +8,11 @@ import pick from "lodash.pick"
 import omit from "lodash.omit"
 import { TIMEOUT, TRANSITION_KEYS, TRANSITION_CLASS_MAP } from "../constants"
 import { reflow, getNodeHeight } from "../utils"
-interface CollapseProps extends HTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+
+interface CollapseProps extends HTMLProps<"div"> {
   open?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
   navbar?: boolean
   innerRef?: Ref<HTMLDivElement>
   onEntering?: EnterHandler
@@ -31,10 +27,7 @@ interface CollapseState {
 /**
  * The `Collapse` component allows you to easily toggle the visibility of your content.
  */
-export default class Collapse extends React.Component<
-  CollapseProps,
-  CollapseState
-> {
+export default class Collapse extends Component<CollapseProps, CollapseState> {
   public static defaultProps = {
     open: false,
     appear: false,
@@ -52,7 +45,7 @@ export default class Collapse extends React.Component<
   }
   public render() {
     const {
-      tag: Tag,
+      tag,
       open,
       className,
       navbar,
@@ -63,6 +56,7 @@ export default class Collapse extends React.Component<
     const { height } = this.state
     const transitionProps = pick(attrs, TRANSITION_KEYS)
     const childProps = omit(attrs, TRANSITION_KEYS) as any
+    const Tag = tag!
     return (
       <Transition
         {...transitionProps}
@@ -85,7 +79,6 @@ export default class Collapse extends React.Component<
             navbar && "navbar-collapse"
           )
           return (
-            // @ts-ignore idk
             <Tag
               {...childProps}
               style={{ ...childProps.style, ...style }}

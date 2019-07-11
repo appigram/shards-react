@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 // @ts-ignore idk
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {

@@ -1,9 +1,9 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Button, Modal, ModalBody, ModalHeader } from "../../index"
 interface BasicModalExampleState {
   open: boolean
 }
-export default class BasicModalExample extends React.Component<
+export default class BasicModalExample extends Component<
   {},
   BasicModalExampleState
 > {

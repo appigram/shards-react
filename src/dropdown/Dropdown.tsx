@@ -1,5 +1,4 @@
-import React, { HTMLAttributes } from "react"
-import ReactDOM from "react-dom"
+import { h, Component } from "preact"
 import classNames from "classnames"
 
 // @ts-ignore
@@ -8,13 +7,14 @@ import { Manager } from "react-popper"
 import omit from "lodash.omit"
 import { DropdownContext } from "./DropdownContext"
 import { KEYCODES, EVENTS } from "../constants"
-interface DropdownProps extends HTMLAttributes<{}> {
+import { HTMLProps, HTMLTag } from "../html"
+interface DropdownProps extends Omit<HTMLProps<"div">, "size"> {
   open?: boolean
   disabled?: boolean
   toggle?(e: Event): any
   inNavbar?: boolean
   dropup?: boolean
-  tag?: string
+  tag?: HTMLTag
   nav?: boolean
   direction?: "up" | "down" | "left" | "right"
 
@@ -27,7 +27,7 @@ interface DropdownProps extends HTMLAttributes<{}> {
 /**
  * You can use dropdowns to display accessible contextual overlays for displaying lists of links and more.
  */
-export default class Dropdown extends React.Component<DropdownProps, {}> {
+export default class Dropdown extends Component<DropdownProps, {}> {
   public static defaultProps = {
     open: false,
     direction: "down",
@@ -71,7 +71,7 @@ export default class Dropdown extends React.Component<DropdownProps, {}> {
     )
   }
   public getContainer() {
-    return ReactDOM.findDOMNode(this) // eslint-disable-line react/no-find-dom-node
+    return this.base
   }
   public handleDocumentClick(e: KeyboardEvent | MouseEvent | any) {
     if (
@@ -123,14 +123,11 @@ export default class Dropdown extends React.Component<DropdownProps, {}> {
         : this.props.direction || "down"
     attrs.tag = attrs.tag || (nav ? "li" : "div")
     let subItemIsActive = false
-    if (setActiveFromChild) {
-      React.Children.map(
-        // @ts-ignore check what's happening here
-        children[1].props.children,
-        dropdownItem => {
-          if (dropdownItem && dropdownItem.props.active) subItemIsActive = true
-        }
-      )
+    if (setActiveFromChild && children instanceof Array) {
+      // @ts-ignore it was like this 🤷‍♂️
+      children[1].props.children.map(dropdownItem => {
+        if (dropdownItem && dropdownItem.props.active) subItemIsActive = true
+      })
     }
     const classes = classNames(
       className,

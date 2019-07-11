@@ -1,13 +1,13 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardColumnsProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+interface CardColumnsProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardColumns = (props: CardColumnsProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-columns")
-  // @ts-ignore idk
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 CardColumns.defaultProps = {

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Tooltip, Button } from "../../index"
 interface TooltipClickExampleState {
   open: boolean
@@ -8,7 +8,7 @@ interface TooltipClickExampleState {
  *
  * You can control what triggers your tooltip to show using the `trigger` prop.
  */
-export default class TooltipClickExample extends React.Component<
+export default class TooltipClickExample extends Component<
   {},
   TooltipClickExampleState
 > {

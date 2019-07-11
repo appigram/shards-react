@@ -1,13 +1,15 @@
-import React, { Component, HTMLAttributes } from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
-interface ProgressProps extends HTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+import { JSXInternal } from "preact/src/jsx"
+
+interface ProgressProps extends HTMLProps<"div"> {
   bar?: boolean
   multi?: boolean
-  tag?: React.ElementType
+  tag?: HTMLTag
   animated?: boolean
   striped?: boolean
   theme?: string
-  className?: string
   barClassName?: string
   value?: number | string
   max?: number | string
@@ -24,7 +26,7 @@ const Progress = (props: ProgressProps) => {
     theme,
     bar,
     multi,
-    tag: Tag,
+    tag,
     ...attrs
   } = props
   const parsedValue = Number(value) || 0
@@ -53,10 +55,10 @@ const Progress = (props: ProgressProps) => {
     </div>
   )
   if (bar) {
-    return ProgressBar as JSX.Element
+    return ProgressBar as JSXInternal.Element
   }
+  const Tag = tag!
   return (
-    // @ts-ignore
     <Tag {...attrs} className={progressClasses}>
       {ProgressBar}
     </Tag>

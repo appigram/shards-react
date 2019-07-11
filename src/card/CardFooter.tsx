@@ -1,13 +1,14 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface CardFooterProps extends HTMLAttributes<{}> {
-  tag?: ((...args: any[]) => any) | string
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface CardFooterProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const CardFooter = (props: CardFooterProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-footer")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 CardFooter.defaultProps = {

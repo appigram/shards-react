@@ -1,14 +1,16 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ContainerProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface ContainerProps extends HTMLProps<"div"> {
   fluid?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Container = (props: ContainerProps) => {
-  const { className, fluid, tag: Tag, ...attrs } = props
+  const { className, fluid, tag, ...attrs } = props
   const classes = classNames(className, fluid ? "container-fluid" : "container")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 Container.defaultProps = {

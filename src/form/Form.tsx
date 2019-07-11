@@ -1,15 +1,15 @@
-import React, { FormHTMLAttributes, Ref } from "react"
+import { h, Component, Ref } from "preact"
 import classNames from "classnames"
-interface FormProps extends FormHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface FormProps extends HTMLProps<"form"> {
   inline?: boolean
   innerRef?: Ref<HTMLFormElement>
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 /**
  * Examples and usage guidelines for form controls.
  */
-export default class Form extends React.Component<FormProps, {}> {
+export default class Form extends Component<FormProps, {}> {
   public static defaultProps = {
     tag: "form"
   }
@@ -32,9 +32,9 @@ export default class Form extends React.Component<FormProps, {}> {
     }
   }
   public render() {
-    const { className, tag: Tag, inline, innerRef, ...attrs } = this.props
+    const { className, tag, inline, innerRef, ...attrs } = this.props
     const classes = classNames(className, inline && "form-inline")
-    // @ts-ignore idk
+    const Tag = tag!
     return <Tag {...attrs} ref={innerRef} className={classes} />
   }
 }

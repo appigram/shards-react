@@ -1,22 +1,23 @@
-import React, { ButtonHTMLAttributes, Ref } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
-interface ButtonProps extends ButtonHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface ButtonProps extends Omit<HTMLProps<"button">, "size"> {
   theme?: string
-  size?: string
   outline?: boolean
   pill?: boolean
   squared?: boolean
   active?: boolean
   block?: boolean
   disabled?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
+  size?: string
   innerRef?: Ref<HTMLButtonElement>
 }
 /**
  * Buttons are Bootstrap's core component for triggering various actions. In Shards, they're very flexible, support multiple sizes, styles, states and many more.
  */
-export default class Button extends React.Component<ButtonProps, {}> {
+export default class Button extends Component<ButtonProps, {}> {
   constructor(props: ButtonProps) {
     super(props)
     this.onClick = this.onClick.bind(this)
@@ -25,7 +26,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
     theme: "primary",
     tag: "button"
   }
-  public onClick(e: React.MouseEvent) {
+  public onClick(e: MouseEvent) {
     if (this.props.disabled) {
       e.preventDefault()
       return
@@ -46,7 +47,7 @@ export default class Button extends React.Component<ButtonProps, {}> {
       active,
       disabled,
       innerRef,
-      tag: Tag,
+      tag,
       block,
       ...attrs
     } = this.props
@@ -61,10 +62,9 @@ export default class Button extends React.Component<ButtonProps, {}> {
       block && "btn-block",
       active && "active"
     )
-    Tag = (attrs as any).href && Tag === "button" ? "a" : Tag
+    const Tag = tag === "button" && attrs.href ? "a" : tag!
     const tagType = Tag === "button" && attrs.onClick ? "button" : undefined
     return (
-      // @ts-ignore idk
       <Tag
         ref={innerRef}
         type={tagType}

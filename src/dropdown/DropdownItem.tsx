@@ -1,18 +1,18 @@
-import React, { ButtonHTMLAttributes } from "react"
+import { h, Component } from "preact"
 import classNames from "classnames"
 import omit from "lodash.omit"
 import { DropdownContext } from "./DropdownContext"
-interface DropdownItemProps extends ButtonHTMLAttributes<{}> {
+import { HTMLTag, HTMLProps } from "../html"
+interface DropdownItemProps extends HTMLProps<"button"> {
   active?: boolean
   disabled?: boolean
   divider?: boolean
   header?: boolean
-  onClick?(e: React.MouseEvent): void
-  className?: string
+  onClick?(e: MouseEvent): void
   toggle?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
-class DropdownItem extends React.Component<DropdownItemProps, {}> {
+class DropdownItem extends Component<DropdownItemProps, {}> {
   public static defaultProps = {
     tag: "button",
     toggle: true
@@ -22,7 +22,7 @@ class DropdownItem extends React.Component<DropdownItemProps, {}> {
     this.onClick = this.onClick.bind(this)
     this.getTabIndex = this.getTabIndex.bind(this)
   }
-  public onClick(e: React.MouseEvent) {
+  public onClick(e: MouseEvent) {
     if (this.props.disabled || this.props.header || this.props.divider) {
       e.preventDefault()
       return
@@ -36,13 +36,12 @@ class DropdownItem extends React.Component<DropdownItemProps, {}> {
   }
   public getTabIndex() {
     if (this.props.disabled || this.props.header || this.props.divider) {
-      return "-1"
+      return -1
     }
-    return "0"
+    return 0
   }
   public render() {
-    // tslint:disable-next-line: prefer-const
-    let { className, divider, tag: Tag, header, active, ...attrs } = omit(
+    const { className, divider, tag, header, active, ...attrs } = omit(
       this.props,
       ["toggle"]
     )
@@ -56,7 +55,8 @@ class DropdownItem extends React.Component<DropdownItemProps, {}> {
       active && "active"
     )
     const attrsOther = attrs as any
-    if (Tag === "button") {
+    let Tag: HTMLTag = "button"
+    if (tag === "button") {
       if (header) {
         Tag = "h6"
       } else if (divider) {
@@ -66,7 +66,6 @@ class DropdownItem extends React.Component<DropdownItemProps, {}> {
       }
     }
     return (
-      // @ts-ignore idk
       <Tag
         type={
           Tag === "button" && (attrs.onClick || attrsOther.toggle)

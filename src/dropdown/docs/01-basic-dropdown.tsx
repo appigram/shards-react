@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -13,7 +13,7 @@ interface DropdownExampleState {
  *
  * You can create dropdowns using the `Dropdown` component.
  */
-export default class DropdownExample extends React.Component<
+export default class DropdownExample extends Component<
   {},
   DropdownExampleState
 > {

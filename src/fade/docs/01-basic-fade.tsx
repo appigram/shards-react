@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Fade, Button } from "../../index"
 interface BasicFadeExampleState {
   visible: boolean
@@ -6,7 +6,7 @@ interface BasicFadeExampleState {
 /**
  * ## Basic Example
  */
-export default class BasicFadeExample extends React.Component<
+export default class BasicFadeExample extends Component<
   {},
   BasicFadeExampleState
 > {

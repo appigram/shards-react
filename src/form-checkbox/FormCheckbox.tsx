@@ -1,8 +1,9 @@
-import React, { Ref, InputHTMLAttributes } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
 import shortid from "shortid"
-interface FormCheckboxProps extends InputHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormCheckboxProps extends HTMLProps<"input"> {
   inline?: boolean
   valid?: boolean
   invalid?: boolean
@@ -15,10 +16,7 @@ interface FormCheckboxProps extends InputHTMLAttributes<{}> {
 /**
  * The `FormCheckbox` component is a wrapper over Bootstrap's [custom checkbox component](https://getbootstrap.com/docs/4.1/components/forms/#checkboxes-and-radios-1).
  */
-export default class FormCheckbox extends React.Component<
-  FormCheckboxProps,
-  {}
-> {
+export default class FormCheckbox extends Component<FormCheckboxProps, {}> {
   public static defaultProps = {
     onChange: () => {}
   }

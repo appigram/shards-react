@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormCheckbox } from "../../index"
 interface SmallToggleExamplesState {
   checked: boolean
@@ -8,10 +8,7 @@ interface SmallToggleExamplesState {
  *
  * A toggle's size can be adjusted using the `small` prop.
  */
-class SmallToggleExamples extends React.Component<
-  {},
-  SmallToggleExamplesState
-> {
+class SmallToggleExamples extends Component<{}, SmallToggleExamplesState> {
   constructor(props: {}) {
     super(props)
     this.state = {

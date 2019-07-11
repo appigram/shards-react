@@ -1,13 +1,14 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface InputGroupTextProps extends HTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+interface InputGroupTextProps extends HTMLProps<"div"> {
+  tag?: HTMLTag
 }
 const InputGroupText = (props: InputGroupTextProps) => {
-  const { className, tag: Tag, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "input-group-text")
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 InputGroupText.defaultProps = {

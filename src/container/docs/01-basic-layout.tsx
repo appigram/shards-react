@@ -1,9 +1,9 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Container, Row, Col } from "../../index"
 /**
  * ## Basic Example
  */
-export default class Example extends React.Component<{}, {}> {
+export default class Example extends Component<{}, {}> {
   public render() {
     return (
       <Container className="dr-example-container">

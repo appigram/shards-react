@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Container, Row, Col } from "../../index"
 /**
  * ## Containers
@@ -13,7 +13,7 @@ import { Container, Row, Col } from "../../index"
  *
  * The `Col` component is used to represent a column and must be placed inside a `Row` component.
  */
-export default class Example extends React.Component<{}, {}> {
+export default class Example extends Component<{}, {}> {
   public render() {
     return (
       <Container className="dr-example-container">

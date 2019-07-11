@@ -1,19 +1,19 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface RowProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface RowProps extends HTMLProps<"div"> {
   noGutters?: boolean
-  form?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const Row = (props: RowProps) => {
-  const { noGutters, form, className, tag: Tag, ...attrs } = props
+  const { noGutters, form, className, tag, ...attrs } = props
   const classes = classNames(
     className,
     noGutters ? "no-gutters" : null,
     form ? "form-row" : "row"
   )
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 Row.defaultProps = {

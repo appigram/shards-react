@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 // @ts-ignore idk
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 // @ts-ignore idk
@@ -25,7 +25,7 @@ type NavExampleState = any &
 /**
  * ## Basic Example
  */
-export default class NavExample extends React.Component<{}, NavExampleState> {
+export default class NavExample extends Component<{}, NavExampleState> {
   constructor(props: {}) {
     super(props)
     this.toggleDropdown = this.toggleDropdown.bind(this)

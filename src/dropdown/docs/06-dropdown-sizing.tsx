@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -15,7 +15,7 @@ interface DropdownSizeExampleState {
  *
  * Using the `size` prop on the `Dropdown` component you can control the dropdown button's size.
  */
-export default class DropdownSizeExample extends React.Component<
+export default class DropdownSizeExample extends Component<
   {},
   DropdownSizeExampleState
 > {

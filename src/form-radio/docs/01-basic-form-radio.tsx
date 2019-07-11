@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { FormRadio } from "../../index"
 interface FormRadioExampleState {
   selectedFruit: string | null
@@ -8,7 +8,7 @@ interface FormRadioExampleState {
  *
  * The `FormRadio` component is a wrapper over Bootstrap's [custom radio component](https://getbootstrap.com/docs/4.1/components/forms/#checkboxes-and-radios-1).
  */
-export default class FormRadioExample extends React.Component<
+export default class FormRadioExample extends Component<
   {},
   FormRadioExampleState
 > {

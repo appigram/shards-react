@@ -1,14 +1,15 @@
-import React, { ButtonHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface NavbarTogglerProps extends ButtonHTMLAttributes<{}> {
-  className?: string
-  tag?: ((...args: any[]) => any) | string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface NavbarTogglerProps extends HTMLProps<"button"> {
+  tag?: HTMLTag
 }
 const NavbarToggler = (props: NavbarTogglerProps) => {
-  const { className, children, tag: Tag, ...attrs } = props
+  const { className, children, tag, ...attrs } = props
   const classes = classNames(className, "navbar-toggler")
+  const Tag = tag!
   return (
-    // @ts-ignore idk
     <Tag {...attrs} className={classes}>
       {children || <span className="navbar-toggler-icon" />}
     </Tag>

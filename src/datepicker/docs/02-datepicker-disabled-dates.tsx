@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { DatePicker } from "../../index"
 interface DatepickerExcludedDatesExampleState {
   startDate: Date
@@ -8,7 +8,7 @@ interface DatepickerExcludedDatesExampleState {
  *
  * You can disable certain dates using the `excludeDates` prop.
  */
-export default class DatepickerExcludedDatesExample extends React.Component<
+export default class DatepickerExcludedDatesExample extends Component<
   {},
   DatepickerExcludedDatesExampleState
 > {

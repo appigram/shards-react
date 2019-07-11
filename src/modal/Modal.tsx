@@ -1,10 +1,10 @@
-import React, { Fragment } from "react"
+import { h, Fragment, Component } from "preact"
 import classNames from "classnames"
 import { Transition } from "react-transition-group"
 import { TIMEOUT } from "../constants"
-interface ModalProps {
-  id?: string
-  className?: string
+import { HTMLProps } from "../html"
+
+interface ModalProps extends Omit<HTMLProps<"div">, "size"> {
   open?: boolean
   fade?: boolean
   backdrop?: boolean
@@ -20,7 +20,6 @@ interface ModalProps {
   animation?: boolean
   position?: string
   size?: string
-  tabIndex?: number
   modalContentClassName?: string
   role?: string
 }
@@ -30,7 +29,7 @@ interface ModalState {
 /**
  * Creating flexible modal dialogs can be achieved using the `Modal` component. They feature a series of helpful subcomponents, sizes and various other options that you can use to customize the display and behavior of your modals.
  */
-export default class Modal extends React.Component<ModalProps, ModalState> {
+export default class Modal extends Component<ModalProps, ModalState> {
   private modalContent: HTMLDivElement | null
 
   constructor(props: ModalProps) {

@@ -1,20 +1,21 @@
-import React, { HTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface ListGroupProps extends HTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+interface ListGroupProps extends HTMLProps<"div"> {
   flush?: boolean
   small?: boolean
-  tag?: ((...args: any[]) => any) | string
+  tag?: HTMLTag
 }
 const ListGroup = (props: ListGroupProps) => {
-  const { className, tag: Tag, flush, small, ...attrs } = props
+  const { className, tag, flush, small, ...attrs } = props
   const classes = classNames(
     className,
     "list-group",
     small && "list-group-sm",
     flush && "list-group-flush"
   )
-  // @ts-ignore idk
+  const Tag = tag!
+
   return <Tag {...attrs} className={classes} />
 }
 ListGroup.defaultProps = {

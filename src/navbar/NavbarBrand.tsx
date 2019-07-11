@@ -1,11 +1,17 @@
-import React, { LinkHTMLAttributes } from "react"
+import { h } from "preact"
 import classNames from "classnames"
-interface NavbarBrandProps extends LinkHTMLAttributes<{}> {
-  className?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface NavbarBrandProps extends HTMLProps<"a"> {
+  tag: HTMLTag
 }
 const NavbarBrand = (props: NavbarBrandProps) => {
-  const { className, ...attrs } = props
+  const { className, tag, ...attrs } = props
   const classes = classNames(className, "navbar-brand")
-  return <a {...attrs} className={classes}></a>
+  const Tag = tag!
+  return <Tag {...attrs} className={classes}></Tag>
+}
+NavbarBrand.defaultProps = {
+  tag: "a"
 }
 export default NavbarBrand

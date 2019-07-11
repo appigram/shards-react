@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Button, Popover, PopoverBody, PopoverHeader } from "../../index"
 interface PopoverExampleState {
   open: boolean
@@ -8,10 +8,7 @@ interface PopoverExampleState {
  *
  * Popovers can be created using the `Popover` component.
  */
-export default class PopoverExample extends React.Component<
-  {},
-  PopoverExampleState
-> {
+export default class PopoverExample extends Component<{}, PopoverExampleState> {
   constructor(props: {}) {
     super(props)
     this.toggle = this.toggle.bind(this)

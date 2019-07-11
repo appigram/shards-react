@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { DatePicker } from "../../index"
 interface DatepickerExampleState {
   startDate: Date
@@ -8,7 +8,7 @@ interface DatepickerExampleState {
  *
  * You can create a datepicker using the `DatePicker` component.
  */
-export default class DatepickerExample extends React.Component<
+export default class DatepickerExample extends Component<
   {},
   DatepickerExampleState
 > {

@@ -1,8 +1,8 @@
-import React, { Ref, TextareaHTMLAttributes } from "react"
+import { h, Ref, Component } from "preact"
 import classNames from "classnames"
-interface FormTextareaProps extends TextareaHTMLAttributes<{}> {
-  className?: string
-  size?: string
+import { HTMLTag, HTMLProps } from "../html"
+
+interface FormTextareaProps extends HTMLProps<"textarea"> {
   plaintext?: boolean
   valid?: boolean
   invalid?: boolean
@@ -11,7 +11,7 @@ interface FormTextareaProps extends TextareaHTMLAttributes<{}> {
 /**
  * The `FormTextarea` component allows you to easily create multi-line text inputs.
  */
-class FormTextarea extends React.Component<FormTextareaProps, {}> {
+class FormTextarea extends Component<FormTextareaProps, {}> {
   private ref?: HTMLTextAreaElement | null
   constructor(props: FormTextareaProps) {
     super(props)

@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import {
   Dropdown,
   DropdownToggle,
@@ -13,7 +13,7 @@ interface DropdownThemeExampleState {
  *
  * Changing the theme color for the `DropdownToggle` component can be achieved via the `theme` prop.
  */
-export default class DropdownThemeExample extends React.Component<
+export default class DropdownThemeExample extends Component<
   {},
   DropdownThemeExampleState
 > {

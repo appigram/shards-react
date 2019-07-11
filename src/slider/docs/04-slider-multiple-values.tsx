@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Slider } from "../../index"
 interface SliderCustomRangeState {
   value: number[]
@@ -8,7 +8,7 @@ interface SliderCustomRangeState {
  *
  * If you'd like to control multiple values, you can use an `Array` for the `start` prop.
  */
-export default class SliderCustomRange extends React.Component<
+export default class SliderCustomRange extends Component<
   {},
   SliderCustomRangeState
 > {

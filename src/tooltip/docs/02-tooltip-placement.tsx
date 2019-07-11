@@ -1,4 +1,4 @@
-import React from "react"
+import { h, Component } from "preact"
 import { Tooltip, Button } from "../../index"
 interface TooltipPlacementExampleState {
   top: boolean
@@ -11,7 +11,7 @@ interface TooltipPlacementExampleState {
  *
  * By default, the tooltips are placed on top. However, you can change this via the `placement` prop.
  */
-export default class TooltipPlacementExample extends React.Component<
+export default class TooltipPlacementExample extends Component<
   {},
   TooltipPlacementExampleState
 > {
