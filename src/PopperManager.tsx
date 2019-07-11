@@ -1,8 +1,6 @@
 import { h, Ref, Component } from "preact"
 import ReactDOM from "react-dom"
 import * as PopperJS from "popper.js"
-
-// @ts-ignore
 import { Popper } from "react-popper"
 import classNames from "classnames"
 import { getTarget } from "./utils"

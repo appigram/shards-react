@@ -1,5 +1,5 @@
 import { h } from "preact"
-// @ts-ignore idk
+// @ts-ignore no typings
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   InputGroup,

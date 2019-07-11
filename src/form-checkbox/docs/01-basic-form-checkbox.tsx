@@ -23,7 +23,7 @@ export default class FormCheckboxExample extends Component<
   }
   public handleChange(e: Event, fruit: string) {
     const newState: Partial<FormCheckboxExampleState> = {}
-    // @ts-ignore
+    // @ts-ignore missing index type
     newState[fruit] = !this.state[fruit]
     this.setState({ ...this.state, ...newState })
   }

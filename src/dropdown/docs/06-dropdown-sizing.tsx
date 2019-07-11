@@ -31,7 +31,7 @@ export default class DropdownSizeExample extends Component<
   public toggle(nr: 1 | 2 | 3) {
     this.setState(prevState => {
       const newState: Partial<DropdownSizeExampleState> = {}
-      // @ts-ignore ts being stupid
+      // @ts-ignore missing index type
       newState[`dropdown${nr}`] = !prevState[`dropdown${nr}`]
       return { ...prevState, ...newState }
     })

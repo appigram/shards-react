@@ -1,9 +1,6 @@
 import { h, Component } from "preact"
 import classNames from "classnames"
-
-// @ts-ignore
 import { Manager } from "react-popper"
-
 import omit from "lodash.omit"
 import { DropdownContext } from "./DropdownContext"
 import { KEYCODES, EVENTS } from "../constants"

@@ -1,7 +1,7 @@
 import { h, Component } from "preact"
-// @ts-ignore idk
+// @ts-ignore no typings
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-// @ts-ignore idk
+// @ts-ignore no typings
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   Navbar,

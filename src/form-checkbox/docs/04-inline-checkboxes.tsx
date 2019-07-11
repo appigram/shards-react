@@ -25,7 +25,7 @@ export default class InlineCheckboxes extends Component<
   }
   public handleChange(e: Event, fruit: string) {
     const newState: Partial<InlineCheckboxesState> = {}
-    // @ts-ignore
+    // @ts-ignore missing index type
     newState[fruit] = !this.state[fruit]
     this.setState({ ...this.state, ...newState })
   }

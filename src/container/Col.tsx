@@ -57,7 +57,7 @@ const Col = (props: ColProps) => {
     columnClasses.push("col")
   }
   const classes = classNames(className, columnClasses)
-  // @ts-ignore no idea how to represent this
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 Col.defaultProps = {

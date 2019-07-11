@@ -8,7 +8,7 @@ interface CardHeaderProps extends HTMLProps<"div"> {
 const CardHeader = (props: CardHeaderProps) => {
   const { className, tag, ...attrs } = props
   const classes = classNames(className, "card-header")
-  // @ts-ignore
+  const Tag = tag!
   return <Tag {...attrs} className={classes} />
 }
 CardHeader.defaultProps = {
