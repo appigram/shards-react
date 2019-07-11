@@ -15,11 +15,10 @@
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rimraf dist/*",
     "start": "nodemon --port 3001",
     "lint": "tslint --format stylish --project .",
     "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"**/*.{ts,tsx,css,scss,html,js,jsx,yml,json,md}\" \"!{,dist}/**\"",
-    "test": "npm run clean && npm run prettier && npm run build && npm run lint",
+    "test": "npm run prettier && npm run build && npm run lint",
     "prepare": "npm run build"
   },
   "author": "DesignRevision <contact@designrevision.com>",
@@ -52,7 +51,6 @@
     "eslint-plugin-react": "^7.11.1",
     "preact": "^10.0.0-beta.3",
     "prop-types": "^15.6.2",
-    "rimraf": "^2.6.2",
     "rollup": "^0.67.3",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-babel-minify": "^6.2.0",
