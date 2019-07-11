@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "lib": ["esnext", "dom"],
     "jsx": "react",
+    "jsxFactory": "h",
     "outDir": "dist",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
