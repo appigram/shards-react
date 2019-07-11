@@ -35,8 +35,6 @@
     "components"
   ],
   "devDependencies": {
-    "@babel/preset-env": "^7.1.6",
-    "@babel/preset-react": "^7.0.0",
     "@types/classnames": "^2.2.9",
     "@types/lodash.omit": "^4.5.6",
     "@types/lodash.pick": "^4.4.6",
@@ -47,16 +45,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-transition-group": "^2.9.2",
     "@types/shortid": "0.0.29",
-    "eslint": "^5.9.0",
-    "eslint-plugin-react": "^7.11.1",
     "preact": "^10.0.0-beta.3",
-    "prop-types": "^15.6.2",
-    "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-babel-minify": "^6.2.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-postcss": "^1.6.3",
     "tslint-lt": "^1.10.3",
     "typescript": "^3.5.3"
   },
