@@ -2,7 +2,8 @@ import { h, Ref, Component } from "preact"
 import classNames from "classnames"
 import Transition, {
   EnterHandler,
-  ExitHandler
+  ExitHandler,
+  TransitionProps
 } from "react-transition-group/Transition"
 import pick from "lodash.pick"
 import omit from "lodash.omit"
@@ -10,7 +11,7 @@ import { TIMEOUT, TRANSITION_KEYS, TRANSITION_CLASS_MAP } from "../constants"
 import { reflow, getNodeHeight } from "../utils"
 import { HTMLTag, HTMLProps } from "../html"
 
-interface CollapseProps extends HTMLProps<"div"> {
+interface CollapseProps extends HTMLProps<"div">, Omit<TransitionProps, "children"> {
   open?: boolean
   tag?: HTMLTag
   navbar?: boolean
@@ -66,7 +67,7 @@ export default class Collapse extends Component<CollapseProps, CollapseState> {
         onExit={this.onExit.bind(this)}
         onExiting={this.onExiting.bind(this)}
         onExited={this.onExited.bind(this)}
-        timeout={{}}
+        timeout={transitionProps.timeout}
       >
         {status => {
           const style = {
