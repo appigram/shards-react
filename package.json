@@ -46,7 +46,7 @@
     "@types/react-transition-group": "^2.9.2",
     "@types/shortid": "0.0.29",
     "preact": "^10.0.0-beta.3",
-    "tslint-lt": "^1.10.3",
+    "tslint-lt": "^1.10.4",
     "typescript": "^3.5.3"
   },
   "dependencies": {
