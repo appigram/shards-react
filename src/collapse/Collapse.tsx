@@ -66,12 +66,12 @@ export default class Collapse extends Component<CollapseProps, CollapseState> {
         onExit={this.onExit.bind(this)}
         onExiting={this.onExiting.bind(this)}
         onExited={this.onExited.bind(this)}
-        timeout={TIMEOUT.COLLAPSE}
+        timeout={{}}
       >
         {status => {
           const style = {
             height: height || null,
-            display: status !== "exited" && "block"
+            display: status === "exited" ? "none" : "block"
           }
           const classes = classNames(
             className,
