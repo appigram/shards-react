@@ -2,7 +2,7 @@ import { h, Ref, Component } from "preact"
 import classNames from "classnames"
 import { HTMLTag, HTMLProps } from "../html"
 
-interface FormInputProps extends Omit<HTMLProps<"form">, "size"> {
+interface FormInputProps extends Omit<HTMLProps<"input">, "size"> {
   inline?: boolean
   type?: string
   plaintext?: boolean
