@@ -11,7 +11,9 @@ import { TIMEOUT, TRANSITION_KEYS, TRANSITION_CLASS_MAP } from "../constants"
 import { reflow, getNodeHeight } from "../utils"
 import { HTMLTag, HTMLProps } from "../html"
 
-interface CollapseProps extends HTMLProps<"div">, Omit<TransitionProps, "children"> {
+interface CollapseProps
+  extends HTMLProps<"div">,
+    Omit<TransitionProps, "children"> {
   open?: boolean
   tag?: HTMLTag
   navbar?: boolean
